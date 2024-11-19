@@ -4,6 +4,9 @@
 #include <LiquidCrystal.h>
 #include <MQ135.h>
 
+//https://github.com/adafruit/DHT-sensor-library
+//https://github.com/NuclearPhoenixx/MQ135
+
 #define DHTPIN 6
 #define DHTTYPE DHT11
 
@@ -45,13 +48,13 @@ void printLcd(float temperature, int humidity, int airQuality)
   else lcd.print("Humidity: "+String(humidity)+"%");
 
   lcd.setCursor(0, 3);
-  lcd.print("Air quality: "+String(airQuality)+" PPM");
+  lcd.print("Air Q: "+String(airQuality)+" PPM");
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
   float temperature;
-  int humidity, airQuality;
+  int humidity=-9999, airQuality=-9999;
 
   delay(delayMS);
 
